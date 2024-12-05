@@ -1,0 +1,26 @@
+the shape of anomaly data at June.02.2023 : (96058, 4)
+The shape of anomaly data after selecting pulse signal region: (96058, 4)
+The shape of anomaly data after extrapolation: (102827, 4)
+
+(5002, 4)
+
+100%|████████████████████████████████████████████████████████████| 252/252 [00:01<00:00, 207.90it/s]
+
+the Mean Square Error(MSE) of Reconstruction in Normal Signal : 
+
+[0.03807931 0.03797024 0.03746308 0.03753304 0.03751275 0.03759963
+ 0.03771686 0.03786878 0.03778373 0.03741267 0.03766239 0.03782981
+ 0.03751135 0.03740698 0.03800392 0.03779114 0.03735726 0.03801854
+ 0.03783349 0.03811783 0.03761251 0.03774245 0.03790293 0.03780065
+ 0.03763286 0.03778156 0.03779135 0.03795131 0.0379974  0.03773001
+ 0.0380848  0.03774715 0.0376955  0.03771964 0.03785622 0.03767548
+ 0.03747154 0.03768292 0.03742732 0.03763514 0.0376313  0.03791506
+ 0.03768959 0.03764417 0.0377395  0.03750182 0.0378485  0.0378108
+ 0.03783757]
+
+100%|████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00, 274.73it/s]
+the Mean Square Error(MSE) of Reconstruction in Anomaly Signal : [0.10293853]
+the Error of Reconstruction in Anomaly Channel C1 Signal : 240.11566162109375
+the Error of Reconstruction in Anomaly Channel C2 Signal : -2633.40869140625
+the Error of Reconstruction in Anomaly Channel C3 Signal : -379.8339538574219
+the Error of Reconstruction in Anomaly Channel C4 Signal : -576.31201171875
