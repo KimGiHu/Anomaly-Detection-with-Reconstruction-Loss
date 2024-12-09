@@ -1,0 +1,88 @@
+2024-12-09 17:28:40.600685: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-12-09 17:28:40.610665: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:485] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-12-09 17:28:40.621021: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:8454] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-12-09 17:28:40.624055: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1452] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-12-09 17:28:40.632073: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-12-09 17:28:41.225243: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+
+Epoch 1/10: 100%|█████████████████████████████████| 1008/1008 [00:14<00:00, 70.79it/s, loss=2.92e+5]
+Epoch [1/10], Total Loss:292495.8484
+Epoch 2/10: 100%|█████████████████████████████████████| 1008/1008 [00:14<00:00, 71.46it/s, loss=554]
+Epoch [2/10], Total Loss:554.1336
+Checkpoint saved at epoch 1
+Epoch 3/10: 100%|█████████████████████████████████████| 1008/1008 [00:14<00:00, 71.34it/s, loss=301]
+Epoch [3/10], Total Loss:300.7507
+Checkpoint saved at epoch 2
+Epoch 4/10: 100%|█████████████████████████████████████| 1008/1008 [00:14<00:00, 71.36it/s, loss=222]
+Epoch [4/10], Total Loss:221.7065
+Checkpoint saved at epoch 3
+Epoch 5/10: 100%|█████████████████████████████████████| 1008/1008 [00:14<00:00, 71.34it/s, loss=181]
+Epoch [5/10], Total Loss:180.8295
+Checkpoint saved at epoch 4
+Epoch 6/10: 100%|█████████████████████████████████████| 1008/1008 [00:14<00:00, 71.38it/s, loss=150]
+Epoch [6/10], Total Loss:149.5218
+Checkpoint saved at epoch 5
+Epoch 7/10: 100%|█████████████████████████████████████| 1008/1008 [00:14<00:00, 71.29it/s, loss=103]
+Epoch [7/10], Total Loss:102.8144
+Checkpoint saved at epoch 6
+Epoch 8/10: 100%|█████████████████████████████████████| 1008/1008 [00:14<00:00, 71.28it/s, loss=116]
+Epoch [8/10], Total Loss:116.2025
+Epoch 9/10: 100%|████████████████████████████████████| 1008/1008 [00:14<00:00, 71.06it/s, loss=50.2]
+Epoch [9/10], Total Loss:50.2474
+Checkpoint saved at epoch 8
+Epoch 10/10: 100%|████████████████████████████████| 1008/1008 [00:14<00:00, 70.88it/s, loss=6.28e+3]
+Epoch [10/10], Total Loss:6279.8705
+Loss exploded! Reloading from last checkpoint...
+Checkpoint loaded. Resuming from epoch 8 with loss 0.0174
+
+100%|████████████████████████████████████████████████████████████| 252/252 [00:01<00:00, 226.28it/s]
+
+the Mean Square Error(MSE) of Reconstruction in Normal Signal : 
+[0.03270062 0.03262226 0.03213583 0.03218208 0.03215723 0.03226956
+ 0.03238184 0.03249263 0.03241115 0.03210287 0.03239382 0.0324998
+ 0.03220493 0.0320924  0.03260965 0.03243343 0.03202961 0.03269172
+ 0.03250138 0.03276903 0.03225562 0.03244465 0.03253423 0.03245928
+ 0.03231093 0.03245032 0.03243448 0.03260585 0.03264106 0.03238964
+ 0.03274021 0.0324196  0.03236082 0.03234744 0.0325109  0.03235245
+ 0.03216051 0.03235999 0.03209187 0.03228711 0.03228427 0.03255403
+ 0.03235891 0.03230886 0.03240032 0.03215899 0.03248365 0.03247637
+ 0.03248533]
+
+100%|████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00, 320.40it/s]
+
+[[[-0.02949784  0.02778625  0.02227783  0.0401001 ]
+  [-0.02949784  0.          0.06665039  0.06011963]
+  [-0.02949784  0.04168701  0.06665039  0.06011963]
+  ...
+  [ 0.14579482  0.01390076  0.06665039  0.08001709]
+  [ 0.14579482  0.01390076  0.06665039  0.06011963]
+  [ 0.14579482  0.01390076  0.06665039  0.08001709]]]
+[[[-0.02949784 -0.02670973  0.02227783  0.0401001 ]
+  [-0.02949784 -0.09589665  0.06665039  0.06011963]
+  [-0.02949784  0.00790274  0.06665039  0.06011963]
+  ...
+  [ 0.14579482 -0.0612842   0.06665039  0.08001709]
+  [ 0.14579482 -0.0612842   0.06665039  0.06011963]
+  [ 0.14579482 -0.0612842   0.06665039  0.08001709]]]
+[[[-0.02949784 -0.02670973 -0.02516593  0.0401001 ]
+  [-0.02949784 -0.09589665 -0.00688858  0.06011963]
+  [-0.02949784  0.00790274 -0.00688858  0.06011963]
+  ...
+  [ 0.14579482 -0.0612842  -0.00688858  0.08001709]
+  [ 0.14579482 -0.0612842  -0.00688858  0.06011963]
+  [ 0.14579482 -0.0612842  -0.00688858  0.08001709]]]
+[[[-0.02949784 -0.02670973 -0.02516593 -0.03145425]
+  [-0.02949784 -0.09589665 -0.00688858 -0.02308007]
+  [-0.02949784  0.00790274 -0.00688858 -0.02308007]
+  ...
+  [ 0.14579482 -0.0612842  -0.00688858 -0.01475694]
+  [ 0.14579482 -0.0612842  -0.00688858 -0.02308007]
+  [ 0.14579482 -0.0612842  -0.00688858 -0.01475694]]]
+
+the Mean Square Error(MSE) of Reconstruction in Anomaly Signal : [0.10496308]
+
+the Error of Reconstruction in Anomaly Channel C1 Signal : -58.996490478515625
+the Error of Reconstruction in Anomaly Channel C2 Signal : -807.9420166015625
+the Error of Reconstruction in Anomaly Channel C3 Signal : -209.2345733642578
+the Error of Reconstruction in Anomaly Channel C4 Signal : -316.0162048339844
