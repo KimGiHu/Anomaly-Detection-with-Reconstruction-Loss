@@ -1,0 +1,54 @@
+2024-12-11 11:04:37.601750: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-12-11 11:04:37.611694: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:485] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-12-11 11:04:37.621972: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:8454] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-12-11 11:04:37.624997: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1452] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-12-11 11:04:37.632994: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-12-11 11:04:38.223926: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+Epoch 1/20: 100%|█████████████████████████████████| 1008/1008 [00:14<00:00, 71.07it/s, loss=3.08e+5]
+Epoch [1/20], Total Loss:308090.1700
+Epoch 2/20: 100%|█████████████████████████████████| 1008/1008 [00:14<00:00, 70.96it/s, loss=7.23e+3]
+Epoch [2/20], Total Loss:7225.9304
+Epoch 3/20: 100%|█████████████████████████████████| 1008/1008 [00:14<00:00, 71.00it/s, loss=4.57e+3]
+Epoch [3/20], Total Loss:4568.3949
+Epoch 4/20: 100%|█████████████████████████████████| 1008/1008 [00:14<00:00, 70.97it/s, loss=4.96e+3]
+Epoch [4/20], Total Loss:4962.7992
+Epoch 5/20: 100%|█████████████████████████████████| 1008/1008 [00:14<00:00, 70.78it/s, loss=3.07e+3]
+Epoch [5/20], Total Loss:3069.7954
+Epoch 6/20: 100%|██████████████████████████████████| 1008/1008 [00:14<00:00, 70.83it/s, loss=2.5e+3]
+Epoch [6/20], Total Loss:2502.8220
+Epoch 7/20: 100%|█████████████████████████████████| 1008/1008 [00:14<00:00, 70.90it/s, loss=2.09e+3]
+Epoch [7/20], Total Loss:2087.0086
+Epoch 8/20: 100%|█████████████████████████████████| 1008/1008 [00:14<00:00, 70.77it/s, loss=1.58e+3]
+Epoch [8/20], Total Loss:1580.3624
+Epoch 9/20: 100%|█████████████████████████████████| 1008/1008 [00:14<00:00, 70.96it/s, loss=1.37e+3]
+Epoch [9/20], Total Loss:1372.7514
+Epoch 10/20: 100%|████████████████████████████████| 1008/1008 [00:14<00:00, 70.86it/s, loss=1.12e+3]
+Epoch [10/20], Total Loss:1115.4318
+Epoch 11/20: 100%|████████████████████████████████| 1008/1008 [00:14<00:00, 70.94it/s, loss=1.16e+3]
+Epoch [11/20], Total Loss:1163.2264
+Epoch 12/20: 100%|████████████████████████████████████| 1008/1008 [00:14<00:00, 70.82it/s, loss=808]
+Epoch [12/20], Total Loss:808.4646
+Epoch 13/20: 100%|████████████████████████████████████| 1008/1008 [00:14<00:00, 70.75it/s, loss=698]
+Epoch [13/20], Total Loss:697.9997
+Epoch 14/20: 100%|████████████████████████████████████| 1008/1008 [00:14<00:00, 70.70it/s, loss=665]
+Epoch [14/20], Total Loss:664.8081
+Epoch 15/20: 100%|████████████████████████████████████| 1008/1008 [00:14<00:00, 70.82it/s, loss=544]
+Epoch [15/20], Total Loss:543.8848
+Epoch 16/20: 100%|████████████████████████████████████| 1008/1008 [00:14<00:00, 70.89it/s, loss=948]
+Epoch [16/20], Total Loss:948.1734
+Epoch 17/20: 100%|████████████████████████████████████| 1008/1008 [00:14<00:00, 70.93it/s, loss=367]
+Epoch [17/20], Total Loss:367.4446
+Epoch 18/20: 100%|████████████████████████████████████| 1008/1008 [00:14<00:00, 70.82it/s, loss=581]
+Epoch [18/20], Total Loss:580.7306
+Epoch 19/20: 100%|████████████████████████████████████| 1008/1008 [00:14<00:00, 70.78it/s, loss=517]
+Epoch 00019: reducing learning rate of group 0 to 2.0000e-05.
+Epoch [19/20], Total Loss:516.7400
+Epoch 20/20: 100%|█████████████████████████████████████| 1008/1008 [00:14<00:00, 70.88it/s, loss=12]
+Epoch [20/20], Total Loss:12.0337
+100%|████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00, 341.14it/s]
+the Mean Square Error(MSE) of Reconstruction in Anomaly Signal : [0.00036993]
+the Error of Reconstruction in Anomaly Channel C1 Signal : 15.776501655578613
+the Error of Reconstruction in Anomaly Channel C2 Signal : -5.275289535522461
+the Error of Reconstruction in Anomaly Channel C3 Signal : -7.644792556762695
+the Error of Reconstruction in Anomaly Channel C4 Signal : 4.125836372375488
