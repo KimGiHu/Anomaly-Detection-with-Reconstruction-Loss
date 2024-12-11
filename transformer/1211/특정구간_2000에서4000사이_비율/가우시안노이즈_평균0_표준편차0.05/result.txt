@@ -1,0 +1,6 @@
+100%|████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00, 253.72it/s]
+the Mean Square Error(MSE) of Reconstruction in Anomaly Signal : [0.00070872]
+the Error of Reconstruction in Anomaly Channel C1 Signal : 132.90863037109375
+the Error of Reconstruction in Anomaly Channel C2 Signal : -34.6303596496582
+the Error of Reconstruction in Anomaly Channel C3 Signal : 7.1869096755981445
+the Error of Reconstruction in Anomaly Channel C4 Signal : 34.8882141113281
