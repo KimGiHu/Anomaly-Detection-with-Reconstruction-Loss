@@ -285,61 +285,61 @@ scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode='min', factor=0
 # 라이브러리 손실함수
 criterion = nn.MSELoss(reduction='mean')  # 복원손실 값으로 MSE 사용
 
-#######################################################################
-############################ STEP 1. TRAIN ############################
-#######################################################################
+# #######################################################################
+# ############################ STEP 1. TRAIN ############################
+# #######################################################################
 
-# TensorBoard Writer 초기화
-writer = SummaryWriter()
-model_VAE.train()
-num_epochs = 20
+# # TensorBoard Writer 초기화
+# writer = SummaryWriter()
+# model_VAE.train()
+# num_epochs = 20
 
-for epoch in range(num_epochs):
-    total_loss = 0
-    middle_loss = 0
-    # tqdm을 이용하여 학습의 진행상황을 시각적으로 표시함.
-    pbar = tqdm(dataloader1, desc=f'Epoch {epoch+1}/{num_epochs}', total=len(dataloader1), ncols=100)
-    for x, c in pbar :
-        x, c = x.to(device), c.to(device)
-        optimizer.zero_grad()
-        x_recon, mu, log_var = model_VAE(x, c)
+# for epoch in range(num_epochs):
+#     total_loss = 0
+#     middle_loss = 0
+#     # tqdm을 이용하여 학습의 진행상황을 시각적으로 표시함.
+#     pbar = tqdm(dataloader1, desc=f'Epoch {epoch+1}/{num_epochs}', total=len(dataloader1), ncols=100)
+#     for x, c in pbar :
+#         x, c = x.to(device), c.to(device)
+#         optimizer.zero_grad()
+#         x_recon, mu, log_var = model_VAE(x, c)
 
-        # VAE 손실 계산
-        recon_loss = criterion(x_recon, x)
-        kl_divergence = -0.5 * torch.sum(1 + log_var - mu.pow(2) - log_var.exp())
-        loss = recon_loss + kl_divergence
-        # loss = loss_function_sum(x_recon, x, mu, log_var)
+#         # VAE 손실 계산
+#         recon_loss = criterion(x_recon, x)
+#         kl_divergence = -0.5 * torch.sum(1 + log_var - mu.pow(2) - log_var.exp())
+#         loss = recon_loss + kl_divergence
+#         # loss = loss_function_sum(x_recon, x, mu, log_var)
 
-        loss.backward()
-        middle_loss += loss.item()
-        optimizer.step()
+#         loss.backward()
+#         middle_loss += loss.item()
+#         optimizer.step()
 
-        total_loss += middle_loss/4
-        pbar.set_postfix(loss=middle_loss)
+#         total_loss += middle_loss/4
+#         pbar.set_postfix(loss=middle_loss)
 
-    scheduler.step(middle_loss) # total_loss값을 비교하여 학습 스케쥴러 업데이트
+#     scheduler.step(middle_loss) # total_loss값을 비교하여 학습 스케쥴러 업데이트
         
-    # TensorBoard에 손실 기록
-    writer.add_scalar('Loss/Epoch', middle_loss, epoch)
-    print(f"Epoch [{epoch+1}/{num_epochs}], Total Loss:{middle_loss:.4f}")
+#     # TensorBoard에 손실 기록
+#     writer.add_scalar('Loss/Epoch', middle_loss, epoch)
+#     print(f"Epoch [{epoch+1}/{num_epochs}], Total Loss:{middle_loss:.4f}")
 
-    # 첫번째 epoch일 때, middle loss 값을 best loss로 저장
-    if epoch == 0 :
-        best_loss = middle_loss
+#     # 첫번째 epoch일 때, middle loss 값을 best loss로 저장
+#     if epoch == 0 :
+#         best_loss = middle_loss
 
-    # 손실값이 급격히 증가하면 이전 체크포인트로 복구
-    if middle_loss > best_loss * 2:  # 손실값이 두 배 이상 증가할 때
-        _, _ = load_checkpoint('./transformer/checkpoint.pth', model_VAE, optimizer)
-        continue  # 다음 반복으로 이동
+#     # 손실값이 급격히 증가하면 이전 체크포인트로 복구
+#     if middle_loss > best_loss * 2:  # 손실값이 두 배 이상 증가할 때
+#         _, _ = load_checkpoint('./transformer/checkpoint.pth', model_VAE, optimizer)
+#         continue  # 다음 반복으로 이동
 
-    # 손실값이 개선되면 체크포인트 저장
-    if middle_loss < best_loss:
-        best_loss = middle_loss
-        save_checkpoint(epoch, model_VAE, optimizer, loss.item(), './transformer/checkpoint.pth')
+#     # 손실값이 개선되면 체크포인트 저장
+#     if middle_loss < best_loss:
+#         best_loss = middle_loss
+#         save_checkpoint(epoch, model_VAE, optimizer, loss.item(), './transformer/checkpoint.pth')
         
-torch.save(model_VAE.state_dict(),'./transformer/best_model.pth')
+# torch.save(model_VAE.state_dict(),'./transformer/best_model.pth')
 
-writer.close()
+# writer.close()
 
 ######################################################################
 ############################ STEP 2. TEST ############################
@@ -421,11 +421,16 @@ else :
 
 # 가우시안 노이즈 생성
 mean = 0  # 평균값
-std_dev = 0.02  # 표준편차
+std_dev = 0.05  # 표준편차
 noise = np.random.normal(mean, std_dev, size=(data_test[100:101,:,:]).shape)
 
 # 원본 신호에 가우시안 노이즈 추가하기
-data_anomaly = data_test[100:101,:,:] + noise
+data_anomaly = data_test[100:101,:,:]
+
+for i in range (0,5002):
+    if i>=2000 and i<=4000 :
+        # data_anomaly[:,i:i+1,:] = data_anomaly[:,i:i+1,:]*(1 + noise)
+        data_anomaly[:,i:i+1,:] += noise[:,i:i+1,:]
 
 # # 스케일링시 주의사항 : transform은 한번 만 사용 가능함을 반드시 인지하기 #
 # # 반복해서 transform을 할 경우가 있으면 반드시 저장과 불러오기를 이용하기 #
@@ -475,8 +480,6 @@ dataloader_test = DataLoader(dataset_test, batch_size=args.batch_size, shuffle=F
 # 이상신호 데이터세트 및 데이터로드 정의
 dataset_anomaly = CustomDataset(anomaly_tensor, anomaly_labels_one_not)
 dataloader_anomaly = DataLoader(dataset_anomaly, batch_size=args.batch_size, shuffle=False, generator=g)
-
-# model_VAE.load_state_dict(torch.load('./transformer_CVAE.pth'))
 
 model_VAE.load_state_dict(torch.load('./transformer/best_model.pth'))
 
@@ -589,7 +592,7 @@ plt.xlabel("Time (us)",fontsize=20)
 plt.title('Anomaly Signal Vs. Reconstruction Signal',fontsize=20)
 plt.grid(True)
     # plt.savefig(args.figure_path+'inference_anomaly %s.png'%channels[channel_index], dpi=600)
-plt.savefig('./inference_generated anomaly C1~C4.png', dpi=600)
+plt.savefig('./inference of anomaly signal.png', dpi=600)
 
 plt.clf() # figure 초기화
 plt.cla() # figure 축 초기화
