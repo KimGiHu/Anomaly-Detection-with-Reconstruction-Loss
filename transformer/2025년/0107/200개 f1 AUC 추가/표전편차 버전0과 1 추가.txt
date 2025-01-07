@@ -1,0 +1,13 @@
+Normal Loss - Mean:  0.0002770079  Std:  1.29763785e-05
+Fault Loss - Mean:  0.002022942  Std:  0.0016399908
+
+ROC Curve에서 정상신호와 비정산신호를 구분하는 최적의 값 : 0.0003127577365376055
+
+Precision:  TP / TP+FP= 1962 / (1962+94) = 0.9543
+Recall: TP / TP+FN = 1962 / (1962+238) = 0.8918
+
+F1-score: 0.9220
+
+Confusion Matrix:
+[[16019    94]
+ [  238  1962]]
