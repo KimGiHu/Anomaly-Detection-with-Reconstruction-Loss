@@ -397,7 +397,6 @@ else :
 
 # for i in range (0,5002):
 #     if i>=1500 and i<=4000 :
-#         augment_anomaly[:,i:i+1,:] = augment_anomaly[:,i:i+1,:] + noise_10[:,i:i+1,:]
 #         augment_anomaly[:,i:i+1,:] = augment_anomaly[:,i:i+1,:]*(1 + noise_10[:,i:i+1,:])
 
 # # numpy 파일로 저장할 경로 설정
