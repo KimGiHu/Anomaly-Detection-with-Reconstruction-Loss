@@ -1,0 +1,10 @@
+Normal Loss - Mean:  0.0002770079  Std:  1.29763785e-05
+Fault Loss - Mean:  0.0046401853  Std:  0.0040943
+ROC Curve에서 정상신호와 비정산신호를 구분하는 최적의 값 : 0.00037077057640999556
+최적의 threshold (FPR <= 10.0%): 0.00037077057640999556
+Precision: 1.0000
+Recall: 0.9091
+F1-score: 0.9524
+Confusion Matrix:
+[[16113     0]
+ [ 1500 15000]]
