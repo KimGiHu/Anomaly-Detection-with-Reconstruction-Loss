@@ -20,7 +20,7 @@ Convolutional Neural Network의 문제점 : overfitting이 되는 것과 같은 
 Anomaly Detection using Pulse Reconstruction with Transformer-based VAE in the KOMAC High-power Systems, Journal of the Korean Physical Society(SCIE), published, April 2025, https://link.springer.com/article/10.1007/s40042-025-01339-0
 
 2. 국제학술대회 발표 1건
-Fault Detection using Pulse Reconstruction with CVAE in the KOMAC High-power Systems, The 26th International Conference on Accelerators and Beam Utilizations, Nov 2024
+Fault Detection using Pulse Reconstruction with CVAE in the KOMAC High-power Systems, The 26th International Conference on Accelerators and Beam Utilizations, Nov 2024, https://www.indico.kr/event/59/contributions/945/
 
 
 ----------------------------------------------------------------------------------------------------------------------------------------
